@@ -18,6 +18,7 @@ reactionSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now(),
+            get: timeStamp => new Date (timeStamp).toLocaleString()
         },
     },
 );

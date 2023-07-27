@@ -25,8 +25,8 @@ const thoughtSchema = new Schema(
         },
     }
 );
-console.log(new Date (Date.now()).toLocaleString())
-// thoughtSchema.methods.getTimeStamp()
+// console.log(new Date (Date.now()).toLocaleString())
+// // thoughtSchema.methods.getTimeStamp()
 
 thoughtSchema.virtual('reactionCount').get(function () {
     return this.reactions.length
