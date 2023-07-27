@@ -11,16 +11,22 @@ const thoughtSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now(),
+            get: timeStamp => new Date (timeStamp).toLocaleString()
         },
         username: {
             type: String,
             required: true,
         },
         reactions: [reactionSchema],
+    },
+    {
+        toJSON: {
+            getters: true,
+        },
     }
 );
-
-thoughtSchema.methods.getTimeStamp()
+console.log(new Date (Date.now()).toLocaleString())
+// thoughtSchema.methods.getTimeStamp()
 
 thoughtSchema.virtual('reactionCount').get(function () {
     return this.reactions.length
