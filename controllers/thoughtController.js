@@ -31,6 +31,8 @@ module.exports = {
         try {
             const thought = await Thought.create(req.body);
             res.json(thought)
+
+            
         } catch (err) {
             res.status(500).json(err)
         }
@@ -62,8 +64,6 @@ module.exports = {
     },
 
     async addReaction(req, res) {
-        console.log('You are adding an assignment');
-        console.log(req.body);
 
         try {
             const thought = await Thought.findOneAndUpdate(
